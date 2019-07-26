@@ -13,22 +13,30 @@ import webpack from 'webpack-stream'
 
 dotenv.config()
 
+const destDevPath = `${process.env.DEST}/${process.env.DEV_SUBFOLDER}/`
+const destProdPath = `${process.env.DEST}/${process.env.PROD_SUBFOLDER}/`
+
 const PATHS = {
   src: {
-    views: process.env.SRC_VIEWS,
-    styles: process.env.SRC_STYLES,
-    scripts: process.env.SRC_SCRIPTS,
-    vuefiles: process.env.SRC_VUE,
-    img: process.env.SRC_IMAGES,
-    assets: process.env.SRC_ASSETS
+    views: process.env.SRC + '/' + process.env.SRC_VIEWS,
+    styles: process.env.SRC + '/' + process.env.SRC_STYLES,
+    scripts: process.env.SRC + '/' + process.env.SRC_SCRIPTS,
+    vuefiles: process.env.SRC + '/' + process.env.SRC_VUE,
+    img: process.env.SRC + '/' + process.env.SRC_IMAGES,
+    assets: process.env.SRC + '/' + process.env.SRC_ASSETS
   },
   dest: {
     global: process.env.DEST,
-    views: process.env.DEST_VIEWS,
-    styles: process.env.DEST_STYLES,
-    scripts: process.env.DEST_SCRIPTS,
-    img: process.env.DEST_IMAGES,
-    assets: process.env.DEST_ASSETS
+    viewsDev: destDevPath + process.env.DEST_VIEWS,
+    viewsProd: destProdPath + process.env.DEST_VIEWS,
+    stylesDev: destDevPath + process.env.DEST_STYLES,
+    stylesProd: destProdPath + process.env.DEST_STYLES,
+    scriptsDev: destDevPath + process.env.DEST_SCRIPTS,
+    scriptsProd: destProdPath + process.env.DEST_SCRIPTS,
+    imgDev: destDevPath + process.env.DEST_IMAGES,
+    imgProd: destProdPath + process.env.DEST_IMAGES,
+    assetsDev: destDevPath + process.env.DEST_ASSETS,
+    assetsProd: destProdPath + process.env.DEST_ASSETS
   }
 }
 
@@ -40,7 +48,7 @@ function views(isDev) {
   return gulp
     .src(PATHS.src.views)
     .pipe(twig())
-    .pipe(gulp.dest(PATHS.dest.views))
+    .pipe(gulp.dest(isDev ? PATHS.dest.viewsDev : PATHS.dest.viewsProd))
 }
 
 function styles(isDev) {
@@ -77,18 +85,18 @@ function styles(isDev) {
       .pipe(sass())
       .pipe(postcss(postcssPlugins))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest(PATHS.dest.styles))
+      .pipe(gulp.dest(PATHS.dest.stylesDev))
   } else {
     // Production mode
     return gulp
       .src(PATHS.src.styles)
       .pipe(sass())
       .pipe(postcss(postcssPlugins))
-      .pipe(gulp.dest(PATHS.dest.styles))
+      .pipe(gulp.dest(PATHS.dest.stylesProd))
   }
 }
 
-function images() {
+function images(isDev) {
   return gulp
     .src(PATHS.src.img)
     .pipe(
@@ -107,18 +115,20 @@ function images() {
         }
       )
     )
-    .pipe(gulp.dest(PATHS.dest.img))
+    .pipe(gulp.dest(isDev ? PATHS.dest.imgDev : PATHS.dest.imgProd))
 }
 
-function assets() {
-  return gulp.src(PATHS.src.assets).pipe(gulp.dest(PATHS.dest.assets))
+function assets(isDev) {
+  return gulp
+    .src(PATHS.src.assets)
+    .pipe(gulp.dest(isDev ? PATHS.dest.assetsDev : PATHS.dest.assetsProd))
 }
 
 function scripts(isDev) {
   return gulp
     .src('src/js/index.js')
     .pipe(webpack(require(`./webpack.config.${isDev ? 'dev' : 'prod'}.js`)))
-    .pipe(gulp.dest(PATHS.dest.scripts))
+    .pipe(gulp.dest(isDev ? PATHS.dest.scriptsDev : PATHS.dest.scriptsProd))
 }
 
 async function build(isDev = true) {
@@ -128,8 +138,8 @@ async function build(isDev = true) {
     views(isDev)
     styles(isDev)
     scripts(isDev)
-    images()
-    assets()
+    images(isDev)
+    assets(isDev)
   } catch (err) {
     console.error(err)
   }
@@ -146,8 +156,8 @@ async function watch() {
     views(true)
     styles(true)
     scripts(true)
-    images()
-    assets()
+    images(true)
+    assets(true)
   } catch (err) {
     console.error(err)
   }

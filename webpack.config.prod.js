@@ -4,7 +4,7 @@ import VueLoaderPlugin from 'vue-loader/lib/plugin'
 
 module.exports = {
   mode: 'production',
-  entry: `./${process.env.SRC_SCRIPTS_ENTRY}`,
+  entry: `./${process.env.SRC}/${process.env.SRC_SCRIPTS_ENTRY}`,
   output: {
     filename: process.env.DEST_OUTPUT_SCRIPT_NAME
   },
