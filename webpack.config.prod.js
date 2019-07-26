@@ -12,11 +12,13 @@ module.exports = {
   optimization: {
     minimizer: [new UglifyJsPlugin()]
   },
-
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },

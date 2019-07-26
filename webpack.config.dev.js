@@ -8,10 +8,13 @@ module.exports = {
     filename: process.env.DEST_OUTPUT_SCRIPT_NAME
   },
   devtool: false,
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
