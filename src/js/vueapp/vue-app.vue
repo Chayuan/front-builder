@@ -1,5 +1,7 @@
 <template>
-  <div class="vue-app">Really awesome Vue app</div>
+  <div class="vue-app">
+    <h2>Vue App</h2>Really awesome Vue app
+  </div>
 </template>
 
 <script>
