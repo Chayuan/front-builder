@@ -25,17 +25,26 @@ That's it folks, you can start coding in the `src/` folder and let the magic hap
 
 ## What it does
 
-- Minify and copy image from `src/imgs` to `dist/imgs`
+- Minify and copy image from `src/imgs` to `dist/imgs` (path are editable)
+
   > You should not rely on gulp minifier to minify your images though, and a pre-minification is strongly recommanded
+
 - Compile scss files to a single `app.css` file (with a sourcemap for developpement)
+
 - Compile Twig templates to html static files
-  - Only twig files matching `src/views/*.twig` will result in compiled views. Twig files stored under subfloders (such as `src/views/components/*.twig`) won't result in a compiled html file.
+
 - Bundle scripts to a single `app.js` file
-  - Scripts will be minified and uglified for production
-  - A sourcemap will be created while in production
-- Support JSX and react applications
-- `.ts` and `.tsx` support
+
+- Scripts will be minified and uglified for production
+
+- A sourcemap will be created while in development
+
+- Supported extensions are `.ts`, `.tsx`, `.js`, `.jsx`, `.vue`
+
+- Support react applications
+
 - Support import syntax and resolve folders indexes
+
 - Support Vue app and Vue file component notation
 
 ## Under the hood
