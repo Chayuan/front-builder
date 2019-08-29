@@ -34,6 +34,7 @@ That's it folks, you can start coding in the `src/` folder and let the magic hap
   - Scripts will be minified and uglified for production
   - A sourcemap will be created while in production
 - Support JSX and react applications
+- `.ts` and `.tsx` support
 - Support import syntax and resolve folders indexes
 - Support Vue app and Vue file component notation
 
