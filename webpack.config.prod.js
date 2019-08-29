@@ -1,5 +1,5 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-var MiniCssExtractPlugin = require('mini-css-extract-plugin')
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import VueLoaderPlugin from 'vue-loader/lib/plugin'
 
 module.exports = {
@@ -9,11 +9,11 @@ module.exports = {
     filename: process.env.DEST_OUTPUT_SCRIPT_NAME
   },
   /* Uglify JS in production */
-  optimization: {
-    minimizer: [new UglifyJsPlugin()]
-  },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
   },
   module: {
     rules: [
