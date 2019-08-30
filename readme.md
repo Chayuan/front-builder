@@ -49,8 +49,6 @@ That's it folks, you can start coding in the `src/` folder and let the magic hap
 
 ## Under the hood
 
-Using gulp to watch and compile scss and twigs. Gulp is also in charge of img minification and copy in the dist folder thanks to the powerful `gulp-imagemin` package.
-
-Scripts are bundled using webpack and transpiled with babel.
-
-Vue `<style></style>` tags will be converted in inline script.
+Using gulp as a task runner.
+Webpack as a script bundler, minifier and uglifier
+Babel to transpile JavaScript
