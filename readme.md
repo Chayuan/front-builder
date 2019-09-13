@@ -54,3 +54,9 @@ That's it folks, you can start coding in the `src/` folder and let the magic hap
 Using gulp as a task runner.
 Webpack as a script bundler, minifier and uglifier
 Babel to transpile JavaScript
+
+## Notes
+
+This project comes with the `.prettierrc` with my configuration. You may want to modify or delete it depending on your team workflow and politic regarding code formatting.
+
+- Deleting the `.prettierrc` will not affect the good working of the project.
