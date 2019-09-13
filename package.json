@@ -1,5 +1,5 @@
 {
-  "name": "twig-sass-boilerplate",
+  "name": "front-builder",
   "version": "1.0.0",
   "description": "Boilerplate for blade templating, scss compilation and JS Transpilation",
   "main": "index.js",
@@ -37,6 +37,7 @@
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
+    "core-js": "^3.2.1",
     "css-loader": "^3.1.0",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
