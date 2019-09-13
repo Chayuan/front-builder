@@ -47,6 +47,8 @@ That's it folks, you can start coding in the `src/` folder and let the magic hap
 
 - Support Vue app and Vue file component notation
 
+- Support old browser (targets can be configured in `.babelrc`)
+
 ## Under the hood
 
 Using gulp as a task runner.
