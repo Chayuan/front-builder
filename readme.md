@@ -17,11 +17,28 @@ Build in developpement mode
 Start watcher
 
 - `npm run dev`
-- `npm run watch`
+- alisased by `npm run watch`
 
 That's it folks, you can start coding in the `src/` folder and let the magic happen.
 
 > All the folder, srcs and destinations are customizable. Just edit the .env file depending on your needs
+
+## List of specific tasks
+
+- `npm run scripts`
+- `npm run scripts:prod`
+  <br>
+- `npm run styles`
+- `npm run styles:prod`
+  <br>
+- `npm run imgs`
+- `npm run imgs:prod`
+  <br>
+- `npm run assets`
+- `npm run assets:prod`
+  <br>
+- `npm run views`
+- `npm run views:prod`
 
 ## What it does
 
