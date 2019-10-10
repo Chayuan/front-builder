@@ -172,3 +172,114 @@ async function watch() {
 gulp.task('build', build)
 gulp.task('build:prod', buildProd)
 gulp.task('watch', watch)
+
+/* specific tasks */
+gulp.task('scripts', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      scripts(true)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('scripts:prod', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      scripts(false)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('styles', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      styles(true)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('styles:prod', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      styles(false)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('views', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      views(true)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('views:prod', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      views(false)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('imgs', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      images(true)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('imgs:prod', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      images(false)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('assets', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      assets(true)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
+
+gulp.task('assets:prod', () => {
+  return new Promise((resolve, reject) => {
+    try {
+      assets(false)
+      resolve()
+    } catch (e) {
+      reject(e)
+    }
+  })
+})
