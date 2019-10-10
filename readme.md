@@ -6,18 +6,14 @@ Clone the project and run `npm install`
 
 ## How to use
 
-Build in production mode
+Build :
 
-- `npm run build:prod`
+- production mode `npm run build:prod`
+- developpement mode `npm run build`
 
-Build in developpement mode
+Watch :
 
-- `npm run build`
-
-Start watcher
-
-- `npm run dev`
-- alisased by `npm run watch`
+- `npm run dev` or `npm run watch`
 
 That's it folks, you can start coding in the `src/` folder and let the magic happen.
 
@@ -27,16 +23,12 @@ That's it folks, you can start coding in the `src/` folder and let the magic hap
 
 - `npm run scripts`
 - `npm run scripts:prod`
-  <br>
 - `npm run styles`
 - `npm run styles:prod`
-  <br>
 - `npm run imgs`
 - `npm run imgs:prod`
-  <br>
 - `npm run assets`
 - `npm run assets:prod`
-  <br>
 - `npm run views`
 - `npm run views:prod`
 
